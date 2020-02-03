@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 //Modules
 import { CoreModule } from './core/core.module';
+import { UserModule } from './user/user.module';
 
 //Components
 import { AppComponent } from './app.component';
@@ -15,12 +16,12 @@ import { AboutComponent } from './about/about.component';
     AppComponent,
     HomeComponent,
     AboutComponent,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
