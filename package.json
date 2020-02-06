@@ -21,6 +21,7 @@
     "@angular/router": "~8.2.14",
     "@fortawesome/fontawesome-free": "^5.12.0",
     "@types/chart.js": "^2.9.11",
+    "@types/googlemaps": "^3.39.2",
     "angular-bootstrap-md": "^8.9.0",
     "animate.css": "^3.7.2",
     "chart.js": "^2.5.0",

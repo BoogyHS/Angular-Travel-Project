@@ -17,6 +17,7 @@ import { AboutComponent } from './about/about.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CountryComponent } from './country/country.component';
 import { UsersService } from './services/users.service';
+import { GoogleMapComponent } from './google-map/google-map.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { UsersService } from './services/users.service';
     AboutComponent,
     DashboardComponent,
     CountryComponent,
+    GoogleMapComponent,
   ],
   imports: [
     BrowserModule,
