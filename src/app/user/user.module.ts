@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //Material Design Bootstrap module
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -18,7 +19,7 @@ import { RegisterComponent } from './register/register.component';
     CommonModule,
     MDBBootstrapModule.forRoot(),
     AppRoutingModule,
-    
+    ReactiveFormsModule
   ],
   exports:[
     LoginComponent

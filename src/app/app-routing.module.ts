@@ -8,6 +8,7 @@ import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
+import { DetailsComponent } from './details/details.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'map', component: GoogleMapComponent },
+  { path: 'details', component: DetailsComponent },
   { path: '', component: HomeComponent },
 ];
 

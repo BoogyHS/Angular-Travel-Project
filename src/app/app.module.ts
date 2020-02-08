@@ -18,6 +18,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CountryComponent } from './country/country.component';
 import { UsersService } from './services/users.service';
 import { GoogleMapComponent } from './google-map/google-map.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { GoogleMapComponent } from './google-map/google-map.component';
     DashboardComponent,
     CountryComponent,
     GoogleMapComponent,
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,

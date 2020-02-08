@@ -1,28 +1,18 @@
 <!-- Default form login -->
-<form class="text-center border border-light" action="#!">
+<form [formGroup]="loginForm" (ngSubmit)="login()" class="text-center border border-light">
 
   <p class="h4 mb-4">Sign in</p>
 
   <!-- Email -->
-  <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+  <input type="email" formControlName="email" class="form-control" placeholder="E-mail">
+  <p class="alert alert-danger error" *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
+    Enter valid email</p>
 
   <!-- Password -->
-  <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
-
-  <div class="d-flex justify-content-around">
-      <div>
-          <!-- Remember me -->
-          <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
-              <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
-          </div>
-      </div>
-      <div>
-          <!-- Forgot password -->
-          <a href="">Forgot password?</a>
-      </div>
-  </div>
-
+  <input type="password" formControlName="password" class="form-control mt-4" placeholder="Password">
+  <p class="alert alert-danger error" *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+    Password must be at least 6 characters</p>
+    
   <!-- Sign in button -->
   <button id="btn" class="btn btn-block my-4" type="submit">Sign in</button>
 
@@ -32,12 +22,12 @@
   </p>
 
   <!-- Social login -->
-  <p>or sign in with:</p>
+  <!-- <p>or sign in with:</p>
 
   <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
   <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
   <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
-  <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
+  <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a> -->
 
 </form>
 <!-- Default form login -->
