@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'kinvey-angular-sdk';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
   }
 
+  async logout() {
+    try {
+      await this.userService.logout();
+      localStorage.clear();
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }

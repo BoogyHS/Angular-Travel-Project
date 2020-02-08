@@ -7,8 +7,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
 
+//Kinvey
+import { KinveyModule } from 'kinvey-angular-sdk';
+
 //Services
 import { CountriesService } from './services/countries.service';
+import { UsersService } from './services/users.service';
 
 //Components
 import { AppComponent } from './app.component';
@@ -16,7 +20,6 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CountryComponent } from './country/country.component';
-import { UsersService } from './services/users.service';
 import { GoogleMapComponent } from './google-map/google-map.component';
 import { DetailsComponent } from './details/details.component';
 
@@ -35,7 +38,11 @@ import { DetailsComponent } from './details/details.component';
     AppRoutingModule,
     CoreModule,
     UserModule,
-    HttpClientModule
+    HttpClientModule,
+    KinveyModule.init({
+      appKey: 'kid_H1S5b0p-I',
+      appSecret: '1ce36659a9c2470784ed80c9b31e8b6c'
+    })
   ],
   providers: [CountriesService, UsersService],
   bootstrap: [AppComponent]

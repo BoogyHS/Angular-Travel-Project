@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UserService } from 'kinvey-angular-sdk';
 
 function MatchPassword(controlName: string, matchingControlName: string) {
   return (formGroup: FormGroup) => {
@@ -27,7 +28,7 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private userService: UserService) {
     this.registerForm = this.fb.group({
       first_name: ['', [Validators.required]],
       last_name: ['', [Validators.required]],
@@ -41,8 +42,18 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  register() {
-    console.log(this.registerForm.value);
-
+  async register() {
+    try {
+      const user = await this.userService.signup(this.registerForm.value);
+      console.log(user);
+    } catch (error) {
+      console.log(error);
+    }
   }
+
+  
+  // register() {
+  //   console.log(this.registerForm.value);
+
+  // }
 }
