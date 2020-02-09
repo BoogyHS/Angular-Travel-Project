@@ -9,6 +9,7 @@ import { } from 'googlemaps';
 export class GoogleMapComponent implements OnInit {
   @ViewChild('map', { static: true }) mapElement: any;
   map: google.maps.Map;
+  
 
   constructor() { }
 

@@ -1,25 +1,24 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-
-//Components
+import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './user/login/login.component';
-import { RegisterComponent } from './user/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { GoogleMapComponent } from './google-map/google-map.component';
 import { DetailsComponent } from './details/details.component';
+import { GoogleMapComponent } from './google-map/google-map.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { RegisterComponent } from './authentication/register/register.component';
+import { TestComponent } from './test/test.component';
 
 
 const routes: Routes = [
-  { path: 'about', component: AboutComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'about', component: AboutComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'map', component: GoogleMapComponent },
   { path: 'details', component: DetailsComponent },
+  { path: 'map', component: GoogleMapComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'test', component: TestComponent },
   { path: '', component: HomeComponent },
 ];
 

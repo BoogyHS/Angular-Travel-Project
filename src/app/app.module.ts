@@ -3,48 +3,50 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
-//Modules
-import { CoreModule } from './core/core.module';
-import { UserModule } from './user/user.module';
+//ngBootstrap
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 //Kinvey
 import { KinveyModule } from 'kinvey-angular-sdk';
 
-//Services
-import { CountriesService } from './services/countries.service';
-import { UsersService } from './services/users.service';
+//Modules
+import { CoreModule } from './core/core.module';
+import { AuthenticationModule } from './authentication/authentication.module';
 
-//Components
+
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component';
 import { CountryComponent } from './country/country.component';
-import { GoogleMapComponent } from './google-map/google-map.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { DetailsComponent } from './details/details.component';
+import { GoogleMapComponent } from './google-map/google-map.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     AboutComponent,
-    DashboardComponent,
+    HomeComponent,
     CountryComponent,
-    GoogleMapComponent,
+    DashboardComponent,
     DetailsComponent,
+    GoogleMapComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgbModule,
     CoreModule,
-    UserModule,
+    AuthenticationModule,
     HttpClientModule,
     KinveyModule.init({
       appKey: 'kid_H1S5b0p-I',
       appSecret: '1ce36659a9c2470784ed80c9b31e8b6c'
     })
   ],
-  providers: [CountriesService, UsersService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
