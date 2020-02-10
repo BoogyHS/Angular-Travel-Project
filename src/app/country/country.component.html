@@ -1,6 +1,7 @@
-<div>
-  <img *ngIf="" class="thumbnail img-fluid" src="http://image.tmdb.org/t/p/w500/asd">
-
-  <h4>Country</h4>
-  <p><button class="btn btn-primary btn-sm" routerLink="/details">Go</button></p>
+<div class="card bg-dark text-white">
+  <img class="card-img" src="{{country.pictureUrl}}" alt="Card image">
+  <div class="card-img-overlay">
+    <h5 class="card-title">{{country.country}}</h5>
+    <p><button class="btn btn-primary btn-sm" routerLink="/details">Go</button></p>
+  </div>
 </div>

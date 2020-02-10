@@ -40,20 +40,29 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.activeUser) {
+      this.logout();
+    }
+  }
+
+  get activeUser() {
+    return this.userService.getActiveUser();
   }
 
   async register() {
     try {
       const user = await this.userService.signup(this.registerForm.value);
-      console.log(user);
     } catch (error) {
       console.log(error);
     }
   }
 
-
-  // register() {
-  //   console.log(this.registerForm.value);
-
-  // }
+  async logout() {
+    try {
+      await this.userService.logout();
+      localStorage.clear();
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }

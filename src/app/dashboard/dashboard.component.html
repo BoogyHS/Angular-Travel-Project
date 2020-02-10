@@ -5,18 +5,8 @@
 
   <div class="panel-body">
     <div class="row cards">
-      <!-- URL for the background comes from the child component -->
-      <div class="col-md-3">
-        <app-country class="card"></app-country>
-      </div>
-      <div class="col-md-3">
-        <app-country class="card"></app-country>
-      </div>
-      <div class="col-md-3">
-        <app-country class="card"></app-country>
-      </div>
-      <div class="col-md-3">
-        <app-country class="card"></app-country>
+      <div *ngFor="let country of countries;let i=index" class="col-md-3">
+        <app-country *ngIf="i<4" [country]="country" class="card"></app-country>
       </div>
     </div>
   </div>

@@ -1,0 +1,29 @@
+form {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.p-left {
+  margin-top: 2px;
+  padding: 0;
+  text-align: left !important;
+}
+
+div {
+  margin-bottom: 50px;
+}
+
+button {
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  background-color: #007bff;
+  color: white;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { DataStoreService } from 'kinvey-angular-sdk';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  visitedCountries: any;
+  countries: any;
 
-  ngOnInit() {
+  constructor(datastoreService: DataStoreService) {
+    this.visitedCountries = datastoreService.collection('visitedCountries');
   }
 
+  ngOnInit() {
+    this.visitedCountries.find()
+      .subscribe((countries) => {
+        this.countries = countries;
+        console.log(countries);
+
+      }, (error) => {
+        console.log(error);
+      });
+  }
 }

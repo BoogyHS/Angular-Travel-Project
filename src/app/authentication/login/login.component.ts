@@ -19,12 +19,29 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.activeUser) {
+      this.logout();
+    }
+  }
+
+  get activeUser() {
+    return this.userService.getActiveUser();
   }
 
   async login() {
     try {
-      const user = await this.userService.login(this.loginForm.value.username, this.loginForm.value.password);
-      console.log(user);
+      const user = await this.userService
+        .login(this.loginForm.value.username, this.loginForm.value.password);
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async logout() {
+    try {
+      await this.userService.logout();
+      localStorage.clear();
     } catch (error) {
       console.log(error);
     }

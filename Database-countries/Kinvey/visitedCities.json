@@ -1,0 +1,54 @@
+[
+  {
+    "city": "Plovdiv",
+    "city_ascii": "Plovdiv",
+    "lat": 42.154,
+    "lng": 24.754,
+    "iso2": "BG",
+    "iso3": "BGR",
+    "country": "Bulgaria",
+    "admin_name": "Plovdiv",
+    "capital": "admin",
+    "population": 340494,
+    "id": 1100436706
+  },
+  {
+    "city": "Sofia",
+    "city_ascii": "Sofia",
+    "lat": 42.6833,
+    "lng": 23.3167,
+    "iso2": "BG",
+    "iso3": "BGR",
+    "country": "Bulgaria",
+    "admin_name": "Sofia-Grad",
+    "capital": "primary",
+    "population": 1185000,
+    "id": 1100762037
+  },
+  {
+    "city": "Haskovo",
+    "city_ascii": "Haskovo",
+    "lat": 41.9438,
+    "lng": 25.5633,
+    "iso2": "BG",
+    "iso3": "BGR",
+    "country": "Bulgaria",
+    "admin_name": "Haskovo",
+    "capital": "admin",
+    "population": 79699,
+    "id": 1100186247
+  },
+  {
+    "city": "Auckland",
+    "city_ascii": "Auckland",
+    "lat": -36.8481,
+    "lng": 174.763,
+    "iso2": "NZ",
+    "iso3": "NZL",
+    "country": "New Zealand",
+    "admin_name": "Auckland",
+    "capital": "admin",
+    "population": 1377200,
+    "id": 1554435911
+  }
+]
