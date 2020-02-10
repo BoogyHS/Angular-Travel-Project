@@ -1,1 +1,8 @@
-<p>details works!</p>
+<div class="card border-success mb-3 mt-3 ml-3" style="max-width: 25rem;">
+  <h3 class="card-header">{{country}}</h3>
+  <div class="text-success container">
+    <span  *ngFor="let citi of cities">
+        <button class="btn btn-success" *ngIf="citi">{{citi.city}}</button>
+    </span>
+  </div>
+</div>

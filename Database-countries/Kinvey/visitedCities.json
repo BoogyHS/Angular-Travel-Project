@@ -50,5 +50,69 @@
     "capital": "admin",
     "population": 1377200,
     "id": 1554435911
+  },{
+    "city": "Ottawa",
+    "city_ascii": "Ottawa",
+    "lat": 45.4167,
+    "lng": -75.7,
+    "iso2": "CA",
+    "iso3": "CAN",
+    "country": "Canada",
+    "admin_name": "Ontario",
+    "capital": "primary",
+    "population": 1145000,
+    "id": 1124399363
+  },
+  {
+    "city": "Toronto",
+    "city_ascii": "Toronto",
+    "lat": 43.7,
+    "lng": -79.42,
+    "iso2": "CA",
+    "iso3": "CAN",
+    "country": "Canada",
+    "admin_name": "Ontario",
+    "capital": "admin",
+    "population": 5213000,
+    "id": 1124279679
+  },
+  {
+    "city": "Montréal",
+    "city_ascii": "Montreal",
+    "lat": 45.5,
+    "lng": -73.5833,
+    "iso2": "CA",
+    "iso3": "CAN",
+    "country": "Canada",
+    "admin_name": "Québec",
+    "capital": "",
+    "population": 3678000,
+    "id": 1124586170
+  },
+  {
+    "city": "Québec",
+    "city_ascii": "Quebec",
+    "lat": 46.84,
+    "lng": -71.2456,
+    "iso2": "CA",
+    "iso3": "CAN",
+    "country": "Canada",
+    "admin_name": "Québec",
+    "capital": "admin",
+    "population": 624177,
+    "id": 1124823933
+  },
+  {
+    "city": "Rio de Janeiro",
+    "city_ascii": "Rio de Janeiro",
+    "lat": -22.925,
+    "lng": -43.225,
+    "iso2": "BR",
+    "iso3": "BRA",
+    "country": "Brazil",
+    "admin_name": "Rio de Janeiro",
+    "capital": "admin",
+    "population": 11748000,
+    "id": 1076887657
   }
 ]

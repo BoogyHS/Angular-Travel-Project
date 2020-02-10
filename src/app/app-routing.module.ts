@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'details', component: DetailsComponent },
+  { path: 'details/:country', component: DetailsComponent },
   { path: 'map', component: GoogleMapComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
