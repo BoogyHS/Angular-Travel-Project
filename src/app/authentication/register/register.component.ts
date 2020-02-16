@@ -55,8 +55,10 @@ export class RegisterComponent implements OnInit {
   }
 
   async register() {
+    const registerObj = this.registerForm.value;
+    delete registerObj.rePassword;
     try {
-      const user = await this.userService.signup(this.registerForm.value);
+      const user = await this.userService.signup(registerObj);
       this.router.navigate(['/dashboard']);
 
     } catch (error) {
