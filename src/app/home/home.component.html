@@ -1,11 +1,13 @@
-<div class="jumbotron">
-  <h1 class="display-4">Hello, world!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+<div class="jumbotron text-center">
+  <h1 class="display-4">WELCOME!</h1>
+  <h4 >This site is made for travelling around the world with Boogy</h4>
   <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg m-5" routerLink="/register" role="button">Register</a>
-    <a class="btn btn-primary btn-lg m-5" routerLink="/login" role="button">Login</a>
-    <a class="btn btn-primary btn-lg m-5" routerLink="/dashboard" (click)="signin()" role="button">Continue as a Guest</a>
+  <p>If you wan't to continue with me to any destination, first you need to
+    <a routerLink="/login" role="button">Login</a> /
+    <a routerLink="/register" role="button">Register</a>
+  </p>
+  <p>
+    Or you can do it as a Guest by clicking the button:
+    <a class="btn btn-primary btn-lg m-5" (click)="signin()" role="button">Continue as a Guest</a>
   </p>
 </div>

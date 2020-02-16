@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'kinvey-angular-sdk';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,10 @@ import { UserService } from 'kinvey-angular-sdk';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
@@ -19,6 +23,7 @@ export class HomeComponent implements OnInit {
   async signin() {
     try {
       const user = await this.userService.login({ username: 'guest', password: 'guest' });
+      this.router.navigate(['/dashboard']);
     } catch (error) {
       console.log(error);
     }

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataStoreService, Query } from 'kinvey-angular-sdk';
+import { GoogleMapComponent } from '../google-map/google-map.component';
 
 @Component({
   selector: 'app-details',
@@ -12,6 +13,7 @@ export class DetailsComponent implements OnInit {
   countryDetails: any;
   country: string;
   cities: any;
+  currentCity: any;
 
   constructor(private route: ActivatedRoute, datastoreService: DataStoreService) {
     this.countryDetails = datastoreService.collection('visitedCities');
@@ -30,6 +32,10 @@ export class DetailsComponent implements OnInit {
           console.log(error)
         });
     })
+  }
+
+  selected(city) {
+    this.currentCity = city;
   }
 
 }
