@@ -14,6 +14,7 @@ import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { TestComponent } from './test/test.component';
 import { AddTravelComponent } from './add-travel/add-travel.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'test', component: TestComponent, canActivate: [AuthGuard] },
   { path: '', component: HomeComponent },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

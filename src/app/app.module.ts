@@ -24,6 +24,7 @@ import { DetailsComponent } from './details/details.component';
 import { GoogleMapComponent } from './google-map/google-map.component';
 import { TestComponent } from './test/test.component';
 import { AddTravelComponent } from './add-travel/add-travel.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AddTravelComponent } from './add-travel/add-travel.component';
     GoogleMapComponent,
     TestComponent,
     AddTravelComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
