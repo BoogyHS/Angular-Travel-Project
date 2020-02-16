@@ -15,7 +15,10 @@ export class DetailsComponent implements OnInit {
   cities: any;
   currentCity: any;
 
-  constructor(private route: ActivatedRoute, datastoreService: DataStoreService) {
+  constructor(
+    private route: ActivatedRoute,
+    datastoreService: DataStoreService
+  ) {
     this.countryDetails = datastoreService.collection('visitedCities');
   }
 

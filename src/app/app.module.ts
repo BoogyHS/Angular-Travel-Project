@@ -11,6 +11,7 @@ import { KinveyModule } from 'kinvey-angular-sdk';
 
 //Modules
 import { CoreModule } from './core/core.module';
+import { ShareModule } from './share/share.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 
 
@@ -39,6 +40,7 @@ import { TestComponent } from './test/test.component';
     AppRoutingModule,
     NgbModule,
     CoreModule,
+    ShareModule,
     AuthenticationModule,
     HttpClientModule,
     KinveyModule.init({

@@ -5,9 +5,13 @@
 
   <div class="panel-body mt-3 mb-5">
     <div class="row cards">
+      <div>
+        <app-loader *ngIf="!countries"></app-loader>
+      </div>
       <div *ngFor="let country of countries;let i=index" class="col-md-3">
         <app-country *ngIf="i<4" [country]="country" class="card"></app-country>
       </div>
     </div>
   </div>
 </div>
+

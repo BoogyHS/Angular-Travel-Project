@@ -16,13 +16,16 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
+
   get activeUser() {
     return this.userService.getActiveUser();
   }
 
   async signin() {
     try {
-      const user = await this.userService.login({ username: 'guest', password: 'guest' });
+      if (!this.activeUser){
+        const user = await this.userService.login({ username: 'guest', password: 'guest' });
+      }
       this.router.navigate(['/dashboard']);
     } catch (error) {
       console.log(error);
