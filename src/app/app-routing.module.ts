@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+//Guards
+import { AuthGuard } from './auth.guard';
+
 //Components
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
@@ -10,10 +13,7 @@ import { GoogleMapComponent } from './google-map/google-map.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { TestComponent } from './test/test.component';
-
-//Guards
-import { AuthGuard } from './auth.guard';
-
+import { AddTravelComponent } from './add-travel/add-travel.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: 'details/:country', component: DetailsComponent },
   { path: 'map', component: GoogleMapComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'addtravel', component: AddTravelComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'test', component: TestComponent, canActivate: [AuthGuard] },
   { path: '', component: HomeComponent },

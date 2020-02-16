@@ -1,30 +1,33 @@
-<!-- Default form register -->
-<form [formGroup]="registerForm" (ngSubmit)="register()" class="text-center">
+<div class="container">
 
-  <p class="h4 mb-5 my-5 mt-5">Sign up</p>
+  <!-- Default form register -->
+  <form [formGroup]="registerForm" (ngSubmit)="register()" class="text-center">
 
-  <div class="form-row mb-4 row-margin">
-    <div class="col">
-      <!-- First name -->
-      <input type="text" formControlName="first_name" class="form-control" placeholder="First name">
-      <p class="alert alert-danger error p-left"
-        *ngIf="registerForm.get('first_name').invalid && registerForm.get('first_name').touched">Enter first name</p>
+    <p class="h4 mb-5 my-5 mt-5">Sign up</p>
+
+    <div class="form-row mb-4 row-margin">
+      <div class="col">
+        <!-- First name -->
+        <input type="text" formControlName="first_name" class="form-control" placeholder="First name">
+        <p class="alert alert-danger error p-left"
+          *ngIf="registerForm.get('first_name').invalid && registerForm.get('first_name').touched">Enter first name</p>
+      </div>
+
+      <div class="col">
+        <!-- Last name -->
+        <input type="text" formControlName="last_name" class="form-control" placeholder="Last name">
+        <p class="alert alert-danger error p-left"
+          *ngIf="registerForm.get('last_name').invalid && registerForm.get('last_name').touched">Enter last name</p>
+      </div>
     </div>
 
-    <div class="col">
-      <!-- Last name -->
-      <input type="text" formControlName="last_name" class="form-control" placeholder="Last name">
+    <!-- E-mail -->
+    <div class="mb-4 row-margin">
+      <input type="email" formControlName="username" class="form-control" placeholder="E-mail">
       <p class="alert alert-danger error p-left"
-        *ngIf="registerForm.get('last_name').invalid && registerForm.get('last_name').touched">Enter last name</p>
+        *ngIf="registerForm.get('username').invalid && registerForm.get('username').touched">
+        Enter valid email</p>
     </div>
-  </div>
-
-  <!-- E-mail -->
-  <div class="mb-4 row-margin">
-    <input type="email" formControlName="username" class="form-control" placeholder="E-mail">
-    <p class="alert alert-danger error p-left" *ngIf="registerForm.get('username').invalid && registerForm.get('username').touched">
-      Enter valid email</p>
-  </div>
 
     <!-- Password -->
     <div class="mb-4 row-margin">
@@ -38,22 +41,23 @@
     <!-- rePassword -->
     <div class="mb-4 row-margin">
       <input type="password" formControlName="rePassword" class="form-control" placeholder="Repeat Password"
-      aria-describedby="defaultRegisterFormPasswordHelpBlock">
+        aria-describedby="defaultRegisterFormPasswordHelpBlock">
       <p class="alert alert-danger error p-left"
-      *ngIf="registerForm.get('rePassword').errors && registerForm.get('rePassword').touched">
-      Password do not match</p>
+        *ngIf="registerForm.get('rePassword').errors && registerForm.get('rePassword').touched">
+        Password do not match</p>
     </div>
     <!-- <small class="form-text text-muted mb-4">
 
   </small> -->
 
 
-  <!-- Sign up button -->
-  <button id="btn" class="btn my-4 btn-block" [disabled]="registerForm.invalid">Sign up</button>
+    <!-- Sign up button -->
+    <button id="btn" class="btn my-4 btn-block" [disabled]="registerForm.invalid">Sign up</button>
 
-  <!-- Register -->
-  <p>Already registered?
-    <a routerLink="/login">Login</a>
-  </p>
+    <!-- Register -->
+    <p>Already registered?
+      <a routerLink="/login">Login</a>
+    </p>
 
-</form>
+  </form>
+</div>
