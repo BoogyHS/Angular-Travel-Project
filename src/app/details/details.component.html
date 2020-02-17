@@ -1,27 +1,27 @@
 <div class="container">
+  <div class="row mt-4 mb-4">
 
-  <div class="col-md-4 card border-success inlnblck">
-    <h3 class="card-header">{{country}}</h3>
-    <div class="text-success container">
-      <span *ngFor="let city of cities">
-        <button *ngIf="city" (click)="selected(city)" class="btn btn-success">{{city.city}}</button>
-      </span>
-    </div>
-  </div>
-
-  <div class="col-md-7 inlnblck">
-    <app-google-map [currentCity]="currentCity"></app-google-map>
-    <div *ngIf="currentCity">
-    <p>Country: {{currentCity.country|json}} - {{currentCity.iso3|json}}</p>
-      <p>City: {{currentCity.city|json}}</p>
-      <p>Population: {{currentCity.population|json}}</p>
-      <div>
-        Geographic coordinates:
-        <p>Latitude: {{currentCity.lat|json}}</p>
-        <p>Longitude: {{currentCity.lng|json}}</p>
+    <div class="card border-success ml-5 col-md-4">
+      <h3 class="card-header">{{country}}</h3>
+      <div class="text-success container">
+        <span *ngFor="let city of cities">
+          <button *ngIf="city" (click)="selected(city)" class="btn btn-success">{{city.city}}</button>
+        </span>
       </div>
     </div>
+
+    <div class="col-md-7 ">
+      <div *ngIf="currentCity">
+        <p>Country: {{currentCity.country|json}} - {{currentCity.iso3|json}}</p>
+        <p>City: {{currentCity.city|json}}</p>
+        <p>Population: {{currentCity.population|json}}</p>
+        <div>
+          Geographic coordinates:
+          <p>Latitude: {{currentCity.lat|json}}</p>
+          <p>Longitude: {{currentCity.lng|json}}</p>
+        </div>
+      </div>
+      <app-google-map [currentCity]="currentCity"></app-google-map>
+    </div>
   </div>
-
-
 </div>

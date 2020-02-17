@@ -8,8 +8,8 @@
       <div>
         <app-loader *ngIf="!countries"></app-loader>
       </div>
-      <div *ngFor="let country of countries;let i=index" class="col-md-3">
-        <app-country *ngIf="i<4" [country]="country" class="card"></app-country>
+      <div *ngFor="let country of countries;let i=index" class="col-md-2">
+        <app-country *ngIf="i<6" [country]="country" class="card"></app-country>
       </div>
     </div>
   </div>
