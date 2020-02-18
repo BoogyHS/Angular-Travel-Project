@@ -10,12 +10,16 @@ import { DataStoreService, Query } from 'kinvey-angular-sdk';
 export class AddTravelComponent implements OnInit, OnDestroy {
 
   form: FormGroup;
-  allCountries: any;
-  allCities: any;
+  countriesCollection: any;
+  citiesCollection: any;
   countries: any;
   cities: any;
-  selectedCountry: string;
+  selectedCountry: any;
   selectedCity: any;
+  visitedCitiesCollection: any;
+  visitedCountriesCollection: any;
+  isCountryVisited: boolean;
+  isCityVisited: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -27,8 +31,10 @@ export class AddTravelComponent implements OnInit, OnDestroy {
       text: ['', [Validators.required]],
     });
 
-    this.allCountries = datastoreService.collection('countriesArr');
-    this.allCities = datastoreService.collection('citiesArr');
+    this.countriesCollection = datastoreService.collection('countriesArr');
+    this.citiesCollection = datastoreService.collection('citiesArr');
+    this.visitedCitiesCollection = datastoreService.collection('visitedCities');
+    this.visitedCountriesCollection = datastoreService.collection('visitedCountries');
   }
 
   ngOnInit() {
@@ -36,38 +42,69 @@ export class AddTravelComponent implements OnInit, OnDestroy {
     const query = new Query();
     query.ascending('country');
     query.fields = ['country'];
-    this.allCountries.find(query)
+    this.countriesCollection.find(query)
       .subscribe((countries) => {
         this.countries = countries;
         // console.log(countries);
-
       }, (error) => {
         console.log(error);
       });
   }
 
   changeSelectedCountry() {
-    this.selectedCountry = this.form.get('countrySelect').value;
+    this.selectedCountry = JSON.parse(this.form.get('countrySelect').value);
+    this.selectedCity = undefined;
 
     const query = new Query();
-    query.ascending('citi_ascii');
-    query.equalTo('country', this.selectedCountry);
-    this.allCities.find(query)
-    .subscribe((cities) => {
-      this.cities = cities;
-      console.log(cities);
+    query.ascending('city_ascii');
+    query.equalTo('country', this.selectedCountry.country);
+    this.citiesCollection.find(query)
+      .subscribe((cities) => {
+        this.cities = cities;
+        // console.log(cities);
+      }, (error) => {
+        console.log(error);
+      });
 
-    }, (error) => {
-      console.log(error);
-    });
+    const query2 = new Query();
+    query2.equalTo('country', this.selectedCountry.country);
+    this.visitedCountriesCollection.find(query2)
+      .subscribe((visitedCountry) => {
+        this.isCountryVisited = visitedCountry.length === 1;
+      }, (error) => {
+        console.log(error);
+      });
   }
 
-  changeSelectedCity($event){
-    this.selectedCity = this.form.get('citySelect').value;
-    console.log(this.selectedCity);
+  changeSelectedCity($event) {
+    this.selectedCity = JSON.parse(this.form.get('citySelect').value);
+    const id = this.selectedCity.id;
 
+    const query = new Query();
+    query.equalTo('id', id);
+    this.visitedCitiesCollection.find(query)
+      .subscribe((visited) => {
+        this.isCityVisited = visited.length === 1;
+        console.log(visited);
+      }, (error) => {
+        console.log(error);
+      });
   }
 
   ngOnDestroy() {
   }
 }
+
+// _id: "5e3d7c9e9658f50016c7137f"
+// city: "Saint John’s"
+// city_ascii: "Saint John's"
+// lat: 17.118
+// lng: -61.85
+// iso2: "AG"
+// iso3: "ATG"
+// country: "Antigua And Barbuda"
+// admin_name: "Saint John"
+// capital: "primary"
+// population: 35499
+// id: 1028912067
+

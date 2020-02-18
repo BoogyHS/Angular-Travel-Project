@@ -5,18 +5,26 @@
     <div class="form-group">
       <label for="exampleFormControlSelect1">Country</label>
       <select formControlName="countrySelect" (change)="changeSelectedCountry($event)" class="form-control">
-        <option>Select Country</option>
-        <option *ngFor="let country of countries">{{country.country}}</option>
+        <!-- <option>Select Country</option> -->
+        <option *ngFor="let country of countries" value="{{country|json}}">{{country.country}}</option>
       </select>
     </div>
 
-    <div *ngIf="selectedCountry">
+    <div *ngIf="cities">
       <label for="exampleFormControlSelect1">City</label>
       <select formControlName="citySelect" (change)="changeSelectedCity($event)" class="form-control">
-        <option>Select City</option>
-        <option *ngFor="let city of cities">{{city.city}}</option>
+        <!-- <option>Select City</option> -->
+        <option *ngFor="let city of cities" value="{{city|json}}">{{city.city}}</option>
       </select>
     </div>
+
+    <!-- <div *ngIf="isCountryVisited">
+      <input type="text" formControlName="username" class="form-control" placeholder="text">
+
+    </div> -->
+    <!-- <div *ngIf="isCityVisited">
+      <input type="text" formControlName="username" class="form-control" placeholder="text">
+    </div> -->
 
   </form>
 </div>
