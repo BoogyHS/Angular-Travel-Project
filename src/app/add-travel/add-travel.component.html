@@ -1,17 +1,21 @@
-<div class="container">
+<div class="container mb-5">
   <form [formGroup]="form" class="text-center">
 
     <p class="h4 mb-5 my-5 mt-5">Add New Travel</p>
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Example select</label>
-      <select formControlName="countrySelect" class="form-control" id="exampleFormControlSelect1">
+      <label for="exampleFormControlSelect1">Country</label>
+      <select formControlName="countrySelect" (change)="changeSelectedCountry($event)" class="form-control">
         <option>Select Country</option>
         <option *ngFor="let country of countries">{{country.country}}</option>
       </select>
     </div>
 
-    <div>
-      <input type="text" formControlName="text" class="form-control" placeholder="text">
+    <div *ngIf="selectedCountry">
+      <label for="exampleFormControlSelect1">City</label>
+      <select formControlName="citySelect" (change)="changeSelectedCity($event)" class="form-control">
+        <option>Select City</option>
+        <option *ngFor="let city of cities">{{city.city}}</option>
+      </select>
     </div>
 
   </form>
