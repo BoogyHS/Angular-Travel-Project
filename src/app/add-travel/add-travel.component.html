@@ -4,8 +4,9 @@
     <p class="h4 mb-5 my-5 mt-5">Add New Travel</p>
     <div class="form-group">
       <label for="exampleFormControlSelect1">Example select</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>1</option>
+      <select formControlName="countrySelect" class="form-control" id="exampleFormControlSelect1">
+        <option>Select Country</option>
+        <option *ngFor="let country of countries">{{country.country}}</option>
       </select>
     </div>
 

@@ -1,4 +1,4 @@
-[
+ const arr = [
   "Afghanistan",
   "Albania",
   "Algeria",
@@ -223,3 +223,4 @@
   "Zambia",
   "Zimbabwe"
 ]
+module.exports = arr;

@@ -1,14 +1,19 @@
 const fs = require('fs');
-const arr=require('./arr.js');
+const arr=require('./countriesArr.js');
 
-
-const mySet = new Set();
+let myArr = [];
 for (const i of arr) {
-  const country = i.country
-
-mySet.add(country);
+  if(!myArr.includes(i)){
+    myArr.push(i);
+  }
 }
-const output = Array.from(mySet).sort()
+let output = [];
+
+myArr.forEach(el=>{
+  output.push({"country":el})
+
+})
+// console.log(output);
 
 fs.writeFile('myFile.json', JSON.stringify(output), function (err) {
   if (err) throw err;
