@@ -9,12 +9,13 @@
       </select>
     </div>
     <div *ngIf="selectedCountry && !countrySend">
-      <p *ngIf="isCountryVisited" class="alert alert-danger">You already have cover picture for {{selectedCountry.country}}. If you
+      <p *ngIf="isCountryVisited" class="alert alert-danger">You already have cover picture for
+        {{selectedCountry.country}}. If you
         want, you can change it.</p>
       <p *ngIf="!isCountryVisited" class="alert alert-danger">It's your first visit to {{selectedCountry.country}}. You
         can add a cover picture.</p>
-        <input type="text" formControlName="pictureUrl" class="form-control" value="{{selectedCountry.pictureUrl}}">
-        <button (click)="saveCountry()">Send</button>
+      <input type="text" formControlName="pictureUrl" class="form-control" value="{{selectedCountry.pictureUrl}}">
+      <button (click)="saveCountry()">Send</button>
     </div>
 
     <div *ngIf="cities">
@@ -24,10 +25,13 @@
       </select>
     </div>
     <div *ngIf="selectedCity && !citySend">
-      <p *ngIf="isCityVisited" class="alert alert-danger">You already have visited {{selectedCity.city}}. If you want, you can change the description</p>
-      <p *ngIf="!isCityVisited" class="alert alert-danger">It's your first visit to {{selectedCity.city}}. You can add a description</p>
-        <input type="text" formControlName="description" class="form-control" value="{{selectedCity.description}}">
-        <button (click)="saveCity()">Add</button>
+      <p *ngIf="isCityVisited" class="alert alert-danger">You already have visited {{selectedCity.city}}. If you want,
+        you can change the description</p>
+      <p *ngIf="!isCityVisited" class="alert alert-danger">It's your first visit to {{selectedCity.city}}. You can add a
+        description</p>
+      must be textarea!!
+      <input type="text" formControlName="description" class="form-control" value="{{selectedCity.description}}">
+      <button (click)="saveCity()">Add</button>
     </div>
 
 
