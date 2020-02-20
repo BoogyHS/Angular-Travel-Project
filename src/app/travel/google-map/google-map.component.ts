@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { } from 'googlemaps';
+import { ICity } from 'src/app/share/interfaces/city';
 
 @Component({
   selector: 'app-google-map',
@@ -11,7 +12,7 @@ export class GoogleMapComponent implements OnChanges {
   @ViewChild('map', { static: true }) mapElement: any;
   map: google.maps.Map;
 
-  @Input() currentCity: any;
+  @Input() currentCity: ICity;
 
   lat = 23.1838625;
   lng = 42.6953468;
@@ -30,7 +31,7 @@ export class GoogleMapComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
 
     if (this.currentCity) {
-     
+
       this.lat = this.currentCity.lat;
       this.lng = this.currentCity.lng;
 

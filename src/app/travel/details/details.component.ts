@@ -2,6 +2,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataStoreService, Query } from 'kinvey-angular-sdk';
 import { GoogleMapComponent } from '../google-map/google-map.component';
+import { ICountry } from 'src/app/share/interfaces/country';
+import { ICity } from 'src/app/share/interfaces/city';
 
 @Component({
   selector: 'app-details',
@@ -11,9 +13,9 @@ import { GoogleMapComponent } from '../google-map/google-map.component';
 export class DetailsComponent implements OnInit {
 
   countryDetails: any;
-  country: string;
-  cities: any;
-  currentCity: any;
+  country: ICountry;
+  cities: ICity[];
+  currentCity: ICity;
 
   constructor(
     private route: ActivatedRoute,

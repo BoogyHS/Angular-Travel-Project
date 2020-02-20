@@ -7,12 +7,11 @@ import { AuthGuard } from './auth.guard';
 //Components
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { DetailsComponent } from './details/details.component';
-import { GoogleMapComponent } from './google-map/google-map.component';
+import { DashboardComponent } from './travel/dashboard/dashboard.component';
+import { DetailsComponent } from './travel/details/details.component';
+import { GoogleMapComponent } from './travel/google-map/google-map.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
-import { TestComponent } from './test/test.component';
 import { AddTravelComponent } from './add-travel/add-travel.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
@@ -25,7 +24,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'addtravel', component: AddTravelComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'test', component: TestComponent, canActivate: [AuthGuard] },
   { path: '', component: HomeComponent },
   { path: '**', component: NotFoundComponent },
 ];

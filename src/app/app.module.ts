@@ -11,31 +11,22 @@ import { KinveyModule } from 'kinvey-angular-sdk';
 
 //Modules
 import { CoreModule } from './core/core.module';
-import { ShareModule } from './share/share.module';
 import { AuthenticationModule } from './authentication/authentication.module';
+import { TravelModule } from './travel/travel.module';
 
-
+//Components
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
-import { CountryComponent } from './country/country.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { DetailsComponent } from './details/details.component';
-import { GoogleMapComponent } from './google-map/google-map.component';
-import { TestComponent } from './test/test.component';
 import { AddTravelComponent } from './add-travel/add-travel.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ShareModule } from './share/share.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
     HomeComponent,
-    CountryComponent,
-    DashboardComponent,
-    DetailsComponent,
-    GoogleMapComponent,
-    TestComponent,
     AddTravelComponent,
     NotFoundComponent,
   ],
@@ -44,6 +35,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     AppRoutingModule,
     NgbModule,
     CoreModule,
+    TravelModule,
     ShareModule,
     AuthenticationModule,
     HttpClientModule,

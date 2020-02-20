@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataStoreService, Query } from 'kinvey-angular-sdk';
+import { ICountry } from '../share/interfaces/country';
+import { ICity } from '../share/interfaces/city';
 
 @Component({
   selector: 'app-add-travel',
@@ -12,10 +14,10 @@ export class AddTravelComponent implements OnInit, OnDestroy {
   form: FormGroup;
   countriesCollection: any;
   citiesCollection: any;
-  countries: any;
-  cities: any;
-  selectedCountry: any;
-  selectedCity: any;
+  countries: ICountry[];
+  cities: ICity[];
+  selectedCountry: ICountry;
+  selectedCity: ICity;
   visitedCitiesCollection: any;
   visitedCountriesCollection: any;
   isCountryVisited: boolean;
@@ -133,18 +135,8 @@ export class AddTravelComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
   }
+  
 }
 
-// _id: "5e3d7c9e9658f50016c7137f"
-// city: "Saint John’s"
-// city_ascii: "Saint John's"
-// lat: 17.118
-// lng: -61.85
-// iso2: "AG"
-// iso3: "ATG"
-// country: "Antigua And Barbuda"
-// admin_name: "Saint John"
-// capital: "primary"
-// population: 35499
-// id: 1028912067
+
 

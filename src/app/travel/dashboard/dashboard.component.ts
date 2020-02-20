@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataStoreService } from 'kinvey-angular-sdk';
+import { ICountry } from 'src/app/share/interfaces/country';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,7 @@ import { DataStoreService } from 'kinvey-angular-sdk';
 export class DashboardComponent implements OnInit {
 
   visitedCountries: any;
-  countries: any;
+  countries: ICountry[];
 
   constructor(datastoreService: DataStoreService) {
     this.visitedCountries = datastoreService.collection('visitedCountries');
@@ -20,7 +21,6 @@ export class DashboardComponent implements OnInit {
       .subscribe((countries) => {
         this.countries = countries;
         console.log(countries);
-
       }, (error) => {
         console.log(error);
       });
