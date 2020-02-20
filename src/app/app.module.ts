@@ -1,13 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 //ngBootstrap
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 //Kinvey
 import { KinveyModule } from 'kinvey-angular-sdk';
+
+//Toastr
+import { ToastrModule } from 'ngx-toastr';
+
+//Interceptor
+import { ToastrInterceptorService } from './toastr-interceptor.service';
 
 //Modules
 import { CoreModule } from './core/core.module';
@@ -32,6 +39,7 @@ import { ShareModule } from './share/share.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     NgbModule,
     CoreModule,
@@ -42,9 +50,20 @@ import { ShareModule } from './share/share.module';
     KinveyModule.init({
       appKey: 'kid_H1S5b0p-I',
       appSecret: '1ce36659a9c2470784ed80c9b31e8b6c'
-    })
+    }),
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ToastrInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

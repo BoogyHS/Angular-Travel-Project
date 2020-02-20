@@ -9,13 +9,24 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  get isLogged() { return !!this.userService.getActiveUser(); }
+  get isAdmin() {
+    if (this.isLogged) {
+      const admin = this.userService.getActiveUser()._acl['entity']['username'];
+      return admin === 'bozhidar.atanasov@abv.bg';
+    }
+    return false;
+  }
+
   constructor(
     private userService: UserService,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit() {
+
   }
+
 
   async logout() {
     try {

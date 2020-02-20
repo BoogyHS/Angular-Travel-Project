@@ -22,6 +22,7 @@
     "@ng-bootstrap/ng-bootstrap": "^5.2.1",
     "@types/googlemaps": "^3.39.2",
     "kinvey-angular-sdk": "^4.2.5",
+    "ngx-toastr": "^10.1.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

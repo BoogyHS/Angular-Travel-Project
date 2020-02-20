@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataStoreService } from 'kinvey-angular-sdk';
 import { ICountry } from 'src/app/share/interfaces/country';
 
@@ -7,12 +7,12 @@ import { ICountry } from 'src/app/share/interfaces/country';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
 
   visitedCountries: any;
   countries: ICountry[];
 
-  constructor(datastoreService: DataStoreService) {
+  constructor(public datastoreService: DataStoreService) {
     this.visitedCountries = datastoreService.collection('visitedCountries');
   }
 
@@ -24,5 +24,10 @@ export class DashboardComponent implements OnInit {
       }, (error) => {
         console.log(error);
       });
+
+  }
+
+  ngOnDestroy() {
+    this.datastoreService.clearCache();
   }
 }
