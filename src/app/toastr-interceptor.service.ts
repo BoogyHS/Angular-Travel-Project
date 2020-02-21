@@ -13,10 +13,8 @@ export class ToastrInterceptorService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    console.log('something');
-
     return next.handle(req).pipe(tap((success) => {
-      this.toastr.success('Hello world!', 'Toastr fun!');
+      this.toastr.success('success', 'Toastr fun!');
     }), catchError((err) => {
       console.log(err);
       this.toastr.error()

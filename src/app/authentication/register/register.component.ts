@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from 'kinvey-angular-sdk';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 function MatchPassword(controlName: string, matchingControlName: string) {
   return (formGroup: FormGroup) => {
@@ -32,7 +33,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    public toastr: ToastrService
   ) {
     this.registerForm = this.fb.group({
       first_name: ['', [Validators.required]],
@@ -60,9 +62,10 @@ export class RegisterComponent implements OnInit {
     try {
       const user = await this.userService.signup(registerObj);
       this.router.navigate(['/dashboard']);
+      this.toastr.success('Registered');
 
     } catch (error) {
-      console.log(error);
+      this.toastr.error('Error');
     }
   }
 
@@ -70,8 +73,9 @@ export class RegisterComponent implements OnInit {
     try {
       await this.userService.logout();
       localStorage.clear();
+      this.toastr.success('Logged out');
     } catch (error) {
-      console.log(error);
+      this.toastr.error('Error');
     }
   }
 }

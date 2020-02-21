@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router,
+    public toastr: ToastrService
   ) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required, Validators.email]],
@@ -39,8 +40,9 @@ export class LoginComponent implements OnInit {
       const user = await this.userService
         .login(this.loginForm.value.username, this.loginForm.value.password);
         this.router.navigate(['/dashboard']);
+        this.toastr.success('Logged in');
     } catch (error) {
-      console.log(error);
+      this.toastr.error('error');
     }
   }
 
@@ -48,8 +50,9 @@ export class LoginComponent implements OnInit {
     try {
       await this.userService.logout();
       localStorage.clear();
+      this.toastr.success('Logged out');
     } catch (error) {
-      console.log(error);
+      this.toastr.error('error');
     }
   }
 }
