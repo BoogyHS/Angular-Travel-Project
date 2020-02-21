@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DataStoreService, Query } from 'kinvey-angular-sdk';
 import { ICountry } from '../share/interfaces/country';
 import { ICity } from '../share/interfaces/city';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-travel',
@@ -27,7 +28,8 @@ export class AddTravelComponent implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
-    datastoreService: DataStoreService
+    datastoreService: DataStoreService,
+    private toastr: ToastrService
   ) {
     this.form = this.fb.group({
       countrySelect: ['', [Validators.required]],
@@ -52,7 +54,8 @@ export class AddTravelComponent implements OnInit, OnDestroy {
         this.countries = countries;
         // console.log(countries);
       }, (error) => {
-        console.log(error);
+        this.toastr.error('Something went wrong');
+        
       });
   }
 
@@ -127,15 +130,24 @@ export class AddTravelComponent implements OnInit, OnDestroy {
     try {
       const savedEntity = await this.visitedCitiesCollection.save(this.selectedCity);
       this.citySend = true;
+
       console.log(this.citySend);
     } catch (error) {
       console.log(error);
     }
   }
 
+  cancel(){
+    this.countrySend = true;
+  }
+
+  cancelCity(){
+    this.citySend = true;
+  }
+
   ngOnDestroy() {
   }
-  
+
 }
 
 
