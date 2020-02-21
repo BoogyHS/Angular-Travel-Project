@@ -12,16 +12,25 @@
 
     <div class="col-md-7 ">
       <div *ngIf="currentCity">
-        <p>Country: {{currentCity.country|json}} - {{currentCity.iso3|json}}</p>
-        <p>City: {{currentCity.city|json}}</p>
-        <p>Population: {{currentCity.population|json}}</p>
-        <div>
-          Geographic coordinates:
-          <p>Latitude: {{currentCity.lat|json}}</p>
-          <p>Longitude: {{currentCity.lng|json}}</p>
+
+        <div class="country border border-success card mb-3 p-3">
+          <p>Country: <b>{{currentCity.country|json}} - {{currentCity.iso3|json}}</b></p>
+          <p>City: <b>{{currentCity.city|json}}</b></p>
+          <p>Population: <b>{{currentCity.population|json}}</b></p>
+          <div>
+            Geographic coordinates:
+            <div class="pl-5">
+              <p>Latitude: <b>{{currentCity.lat|json}}</b></p>
+              <p>Longitude: <b>{{currentCity.lng|json}}</b></p>
+            </div>
+            <p>Description: <em>{{currentCity.description|json}}</em></p>
+          </div>
         </div>
+
       </div>
-      <app-google-map [currentCity]="currentCity"></app-google-map>
+      <div class="card">
+        <app-google-map [currentCity]="currentCity"></app-google-map>
+      </div>
     </div>
   </div>
 </div>
