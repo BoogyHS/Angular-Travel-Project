@@ -14,11 +14,14 @@ import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
 import { AddTravelComponent } from './add-travel/add-travel.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { DashboardResolverService } from './travel/dashboard-resolver.service';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard], resolve: {
+    list: DashboardResolverService,
+  }, },
   { path: 'details/:country', component: DetailsComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent, data: {
     isLogged: false

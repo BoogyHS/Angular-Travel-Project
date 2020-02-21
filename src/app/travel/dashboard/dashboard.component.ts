@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataStoreService } from 'kinvey-angular-sdk';
 import { ICountry } from 'src/app/share/interfaces/country';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,19 +13,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
   visitedCountries: any;
   countries: ICountry[];
 
-  constructor(public datastoreService: DataStoreService) {
+  constructor(
+    public datastoreService: DataStoreService,
+    private activatedRoute: ActivatedRoute
+    ) {
     this.visitedCountries = datastoreService.collection('visitedCountries');
+    this.countries = activatedRoute.snapshot.data.list;
   }
 
   ngOnInit() {
-    this.visitedCountries.find()
-      .subscribe((countries) => {
-        this.countries = countries;
-        console.log(countries);
-      }, (error) => {
-        console.log(error);
-      });
-
   }
 
   ngOnDestroy() {
