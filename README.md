@@ -1,3 +1,7 @@
+# If you are tester from SoftUni
+please use this username: bozhidar.atanasov@abv.bg password: 123456
+otherwise you don't have permission to test some of admin functionalities.
+
 # Test
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.

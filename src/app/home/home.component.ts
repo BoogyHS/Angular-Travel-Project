@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  get isLogged() { return !!this.userService.getActiveUser(); }
+  
   constructor(
     private userService: UserService,
     private router: Router
