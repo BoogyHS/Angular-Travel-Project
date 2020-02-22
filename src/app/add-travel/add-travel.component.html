@@ -9,12 +9,11 @@
         <option *ngFor="let country of countries" value="{{country|json}}">{{country.country}}</option>
       </select>
     </div>
-    <div *ngIf="selectedCountry && !countrySend">
+    <div *ngIf="selectedCountry && !countrySend && countryReceived">
       <p *ngIf="isCountryVisited" class="alert alert-danger">You already have cover picture for
-        {{selectedCountry.country}}. If you
-        want, you can change it.</p>
-      <p *ngIf="!isCountryVisited" class="alert alert-danger">It's your first visit to {{selectedCountry.country}}. You
-        can add a cover picture.</p>
+        {{selectedCountry.country}}. If you want, you can change it.</p>
+      <p *ngIf="!isCountryVisited" class="alert alert-danger">It's your first visit to {{selectedCountry.country}}.
+        You can add a cover picture.</p>
       <input type="text" formControlName="pictureUrl" class="form-control" value="{{selectedCountry.pictureUrl}}">
       <button class="btn btn-success mt-2 mr-3" (click)="saveCountry()">Send</button>
       <button class="btn btn-danger mt-2" (click)="cancel()">Not now</button>
@@ -25,15 +24,17 @@
       <select formControlName="citySelect" (change)="changeSelectedCity($event)" class="form-control">
         <option *ngFor="let city of cities" value="{{city|json}}">{{city.city}}</option>
       </select>
-    </div>
-    <div *ngIf="selectedCity && !citySend" class="mt-2">
-      <p *ngIf="isCityVisited" class="alert alert-danger">You already have visited {{selectedCity.city}}. If you want,
-        you can change the description</p>
-      <p *ngIf="!isCityVisited" class="alert alert-danger">It's your first visit to {{selectedCity.city}}. You can add a
-        description</p>
-      <label for="desc">Description</label>
-      <textarea name="" formControlName="description" id="desc" class="form-control" cols="30" rows="10">{{selectedCity.description}}</textarea>
-      <button class="btn btn-success mt-2 mr-3" (click)="saveCity()">Add</button>
+
+      <div *ngIf="selectedCity && !citySend" class="mt-2">
+        <p *ngIf="isCityVisited" class="alert alert-danger">You already have visited {{selectedCity.city}}. If you want,
+          you can change the description</p>
+        <p *ngIf="!isCityVisited" class="alert alert-danger">It's your first visit to {{selectedCity.city}}. You can add
+          a description</p>
+        <label for="desc">Description</label>
+        <textarea name="" formControlName="description" id="desc" class="form-control" cols="30"
+          rows="10">{{selectedCity.description}}</textarea>
+        <button class="btn btn-success mt-2 mr-3" (click)="saveCity()">Add</button>
+      </div>
     </div>
 
   </form>

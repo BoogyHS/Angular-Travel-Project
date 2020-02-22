@@ -15,7 +15,6 @@ export class DashboardResolverService implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
      return this.visitedCountries.find();
-    // return true;
   }
 
 }

@@ -25,6 +25,9 @@ export class AddTravelComponent implements OnInit, OnDestroy {
   isCityVisited: boolean;
   countrySend: boolean;
   citySend: boolean;
+  citiesReceived: boolean;
+  countriesReceived: boolean;
+  countryReceived: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -52,10 +55,10 @@ export class AddTravelComponent implements OnInit, OnDestroy {
     this.countriesCollection.find(query)
       .subscribe((countries) => {
         this.countries = countries;
+        this.countriesReceived = true;
         // console.log(countries);
       }, (error) => {
         this.toastr.error('Something went wrong');
-        
       });
   }
 
@@ -63,6 +66,8 @@ export class AddTravelComponent implements OnInit, OnDestroy {
     this.selectedCountry = JSON.parse(this.form.get('countrySelect').value);
     this.selectedCity = undefined;
     this.isCountryVisited = false;
+    this.citiesReceived = false;
+    this.countryReceived = false;
 
     const query = new Query();
     query.ascending('city_ascii');
@@ -70,21 +75,25 @@ export class AddTravelComponent implements OnInit, OnDestroy {
     this.citiesCollection.find(query)
       .subscribe((cities) => {
         this.cities = cities;
+        this.citiesReceived = true;
         // console.log(cities);
       }, (error) => {
-        console.log(error);
+        this.toastr.error('Something went wrong');
       });
 
     const query2 = new Query();
     query2.equalTo('country', this.selectedCountry.country);
     this.visitedCountriesCollection.find(query2)
       .subscribe((visitedCountry) => {
-        if (visitedCountry.length === 1) {
-          this.selectedCountry = visitedCountry[0]; //may be a problem because of this
-          this.isCountryVisited = true;
+        this.countryReceived = true;
+        if (this.countryReceived) {
+          if (visitedCountry.length === 1) {
+            this.selectedCountry = visitedCountry[0]; //may be a problem because of this
+            this.isCountryVisited = true;
+          }
         }
       }, (error) => {
-        console.log(error);
+        this.toastr.error('Something went wrong');
       });
   }
 
@@ -92,6 +101,7 @@ export class AddTravelComponent implements OnInit, OnDestroy {
     this.selectedCity = JSON.parse(this.form.get('citySelect').value);
     const id = this.selectedCity.id;
     this.isCityVisited = false;
+    this.citiesReceived = false;
 
     const query = new Query();
     query.equalTo('id', id);
@@ -99,7 +109,7 @@ export class AddTravelComponent implements OnInit, OnDestroy {
       .subscribe((visited) => {
         this.isCityVisited = visited.length === 1;
       }, (error) => {
-        console.log(error);
+        this.toastr.error('Something went wrong');
       });
 
     const query2 = new Query();
@@ -111,7 +121,7 @@ export class AddTravelComponent implements OnInit, OnDestroy {
           this.isCityVisited = true;
         }
       }, (error) => {
-        console.log(error);
+        this.toastr.error('Something went wrong');
       });
   }
 
@@ -120,8 +130,9 @@ export class AddTravelComponent implements OnInit, OnDestroy {
     try {
       const savedEntity = await this.visitedCountriesCollection.save(this.selectedCountry);
       this.countrySend = true;
+      this.toastr.success('Entity saved');
     } catch (error) {
-      console.log(error);
+      this.toastr.error('Something went wrong');
     }
   }
 
@@ -130,18 +141,17 @@ export class AddTravelComponent implements OnInit, OnDestroy {
     try {
       const savedEntity = await this.visitedCitiesCollection.save(this.selectedCity);
       this.citySend = true;
-
-      console.log(this.citySend);
+      this.toastr.success('Entity saved');
     } catch (error) {
-      console.log(error);
+      this.toastr.error('Something went wrong');
     }
   }
 
-  cancel(){
+  cancel() {
     this.countrySend = true;
   }
 
-  cancelCity(){
+  cancelCity() {
     this.citySend = true;
   }
 
@@ -149,6 +159,3 @@ export class AddTravelComponent implements OnInit, OnDestroy {
   }
 
 }
-
-
-
