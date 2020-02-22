@@ -68,6 +68,7 @@ export class AddTravelComponent implements OnInit, OnDestroy {
     this.isCountryVisited = false;
     this.citiesReceived = false;
     this.countryReceived = false;
+    this.countrySend = false;
 
     const query = new Query();
     query.ascending('city_ascii');
