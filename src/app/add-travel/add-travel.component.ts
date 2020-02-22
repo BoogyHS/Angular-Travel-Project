@@ -102,6 +102,7 @@ export class AddTravelComponent implements OnInit, OnDestroy {
     const id = this.selectedCity.id;
     this.isCityVisited = false;
     this.citiesReceived = false;
+    this.citySend=false;
 
     const query = new Query();
     query.equalTo('id', id);
